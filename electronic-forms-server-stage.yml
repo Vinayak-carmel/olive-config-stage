@@ -13,7 +13,7 @@ spring:
 
 # &serverTimezone=UTC
   datasource:
-    url: jdbc:mysql://10.0.0.8:3306/olive?createDatabaseIfNotExist=true&useLegacyDatetimeCode=false
+    url: jdbc:mysql://10.0.0.8:3306/olive-stage?createDatabaseIfNotExist=true&useLegacyDatetimeCode=false
     username: root
     password: P@ssw0rd
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/carmel/eForms/  
