@@ -1,0 +1,44 @@
+server:
+  port: 7077
+
+spring:
+  application:
+    name: electronic-forms-server 
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://15.206.67.196:7071/.well-known/jwks.json"
+
+# &serverTimezone=UTC
+  datasource:
+    url: jdbc:mysql://10.0.0.8:3306/olive?createDatabaseIfNotExist=true&useLegacyDatetimeCode=false
+    username: root
+    password: P@ssw0rd
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/carmel/eForms/  
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+
+
+  jpa:
+    hibernate:
+#      properties:
+#        jdbc:
+#          time_zone: UTC        
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect    
+      
+logging:
+  file:
+    name: ./logs/electronic-forms-server.log
+auth:
+  org-id: "c79ecc86-20b7-44b2-ab70-3db893e37725"
+  client-id: "olive@carmelsolutions"
+  grant-type: "password"
+  refresh-grant-token: "refresh_token"
